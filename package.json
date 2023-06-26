@@ -1,0 +1,37 @@
+{
+  "name": "com.gardena",
+  "version": "1.0.0",
+  "description": "With an intelligent irrigation system and robotic lawnmower, your garden is taken care of, from anywhere.",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "homey-oauth2app": "^3.2.5",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-athom": "^3.0.1"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athombv/com.gardena.git"
+  },
+  "author": "Athom B.V.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/athombv/com.gardena/issues"
+  },
+  "homepage": "https://github.com/athombv/com.gardena#readme",
+  "eslintConfig": {
+    "extends": "athom"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}

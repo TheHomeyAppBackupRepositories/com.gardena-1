@@ -1,0 +1,13 @@
+{
+  "PAUSED": "Paused",
+  "OK_CUTTING": "Mowing",
+  "OK_CUTTING_TIMER_OVERRIDDEN": "Mowing (Manual)",
+  "OK_SEARCHING": "Searching charging station",
+  "OK_LEAVING": "Leaving charging station",
+  "OK_CHARGING": "Charging",
+  "PARKED_TIMER": "Parked (Scheduled)",
+  "PARKED_PARK_SELECTED": "Parked (Manual)",
+  "PARKED_AUTOTIMER": "Parked (Scheduled)",
+  "NONE": "Unknown",
+  "mower_error_occurred": "Mower encountered an error: __error__."
+}

@@ -1,0 +1,13 @@
+{
+    "PAUSED": "Gepauzeerd",
+    "OK_CUTTING": "Maaien",
+    "OK_CUTTING_TIMER_OVERRIDDEN": "Maaien (Handmatig)",
+    "OK_SEARCHING": "Zoeken naar oplaadstation",
+    "OK_LEAVING": "Vertrekken van oplaadstation",
+    "OK_CHARGING": "Opladen",
+    "PARKED_TIMER": "Geparkeerd (Schema)",
+    "PARKED_PARK_SELECTED": "Geparkeerd (Handmatig)",
+    "PARKED_AUTOTIMER": "Geparkeerd (Schema)",
+    "NONE": "Onbekend",
+    "mower_error_occurred": "Maaier geeft een foutmelding: __error__."
+  }

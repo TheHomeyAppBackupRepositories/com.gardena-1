@@ -1,1 +1,933 @@
-{"_comment":"This file is generated. Please edit .homeycompose/app.json instead.","id":"com.gardena","version":"2.3.7","compatibility":">=5.0.0","brandColor":"#EC520D","sdk":3,"name":{"en":"Gardena"},"description":{"en":"Never leave your garden behind"},"category":["appliances"],"platforms":["cloud","local"],"support":"https://homey.app/support","permissions":[],"images":{"large":"/assets/images/large.jpg","small":"/assets/images/small.jpg"},"author":{"name":"Athom B.V."},"flow":{"triggers":[{"title":{"en":"The soil humidity changed","nl":"De grondvochtigheid is veranderd"},"tokens":[{"type":"number","name":"humidity","title":{"en":"humidity (%)","nl":"vochtigheid (%)"},"example":{"en":"50"}}],"args":[{"type":"device","name":"device","filter":"driver_id=sensor-19040|sensor"}],"id":"soil_humidity_changed"},{"title":{"en":"The soil temperature changed","nl":"De grondtemperatuur is veranderd"},"tokens":[{"type":"number","name":"soil_temperature","title":{"en":"soil temperature","nl":"grondtemperatuur"},"example":{"en":"20"}}],"args":[{"type":"device","name":"device","filter":"driver_id=sensor-19040|sensor"}],"id":"soil_temperature_changed"},{"id":"gardena_mower_state_has_changed","title":{"en":"Mower state changed","nl":"Maaier status is veranderd"},"args":[{"type":"device","name":"device","filter":"driver_id=mower"}]},{"id":"gardena_mower_state_error","title":{"en":"Mower encountered an error","nl":"Maaier kreeg een foutmelding"},"tokens":[{"name":"error_message","type":"string","title":{"en":"Error message","nl":"Foutmelding"},"example":"CHARGING_STATION_BLOCKED"}],"args":[{"type":"device","name":"device","filter":"driver_id=mower"}]}],"actions":[{"id":"irrigation_control_turn_on_valve1","title":{"en":"Turn on valve 1","nl":"Open ventiel 1"},"duration":true,"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve1"}]},{"id":"irrigation_control_turn_off_valve1","title":{"en":"Turn off valve 1","nl":"Sluit ventiel 1"},"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve1"}]},{"id":"irrigation_control_turn_on_valve2","title":{"en":"Turn on valve 2","nl":"Open ventiel 2"},"duration":true,"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve2"}]},{"id":"irrigation_control_turn_off_valve2","title":{"en":"Turn off valve 2","nl":"Sluit ventiel 2"},"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve2"}]},{"id":"irrigation_control_turn_on_valve3","title":{"en":"Turn on valve 3","nl":"Open ventiel 3"},"duration":true,"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve3"}]},{"id":"irrigation_control_turn_off_valve3","title":{"en":"Turn off valve 3","nl":"Sluit ventiel 3"},"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve3"}]},{"id":"irrigation_control_turn_on_valve4","title":{"en":"Turn on valve 4","nl":"Open ventiel 4"},"duration":true,"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve4"}]},{"id":"irrigation_control_turn_off_valve4","title":{"en":"Turn off valve 4","nl":"Sluit ventiel 4"},"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve4"}]},{"id":"irrigation_control_turn_on_valve5","title":{"en":"Turn on valve 5","nl":"Open ventiel 5"},"duration":true,"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve5"}]},{"id":"irrigation_control_turn_off_valve5","title":{"en":"Turn off valve 5","nl":"Sluit ventiel 5"},"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve5"}]},{"id":"irrigation_control_turn_on_valve6","title":{"en":"Turn on valve 6","nl":"Open ventiel 6"},"duration":true,"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve6"}]},{"id":"irrigation_control_turn_off_valve6","title":{"en":"Turn off valve 6","nl":"Sluit ventiel 6"},"args":[{"type":"device","name":"device","filter":"driver_id=irrigation-control&capabilities=onoff.valve6"}]},{"id":"mower_start","title":{"en":"Start mowing","nl":"Begin met maaien"},"duration":true,"args":[{"type":"device","name":"device","filter":"driver_id=mower"}]},{"id":"mower_park","title":{"en":"Park","nl":"Parkeer"},"args":[{"type":"device","name":"device","filter":"driver_id=mower"}]}],"conditions":[{"id":"gardena_mower_state_is","title":{"en":"Mower !{{is|isn't}}","nl":"Maaier !{{is|is niet}}"},"titleFormatted":{"en":"Mower !{{is|isn't}} [[status]]","nl":"Maaier !{{is|is niet}} [[status]]"},"args":[{"type":"device","name":"device","filter":"driver_id=mower"},{"type":"dropdown","name":"status","title":{"en":"Current mower state","nl":"Huidige maaier status"},"values":[{"id":"mowing","label":{"en":"mowing","nl":"aan het maaien"}},{"id":"parked","label":{"en":"parked","nl":"geparkeerd"}},{"id":"paused","label":{"en":"paused","nl":"gepauzeerd"}},{"id":"searching_station","label":{"en":"searching charging station","nl":"oplaadstation aan het zoeken"}},{"id":"leaving_station","label":{"en":"leaving charging station","nl":"oplaadstation aan het verlaten"}}]}]}]},"drivers":[{"images":{"large":"/drivers/irrigation-control/assets/images/large.jpg","small":"/drivers/irrigation-control/assets/images/small.jpg"},"platforms":["cloud","local"],"pair":[{"id":"login_oauth2","template":"login_oauth2"},{"id":"list_devices","template":"list_devices","navigation":{"next":"add_devices"}},{"id":"add_devices","template":"add_devices"}],"repair":[{"id":"login_oauth2","template":"login_oauth2"}],"name":{"en":"Irrigation Control"},"connectivity":["cloud"],"class":"other","capabilities":["onoff.valve1","onoff.valve2","onoff.valve3","onoff.valve4","onoff.valve5","onoff.valve6","gardena_wireless_quality"],"capabilitiesOptions":{"onoff.valve1":{"title":{"en":"Valve 1","nl":"Ventiel 1"}},"onoff.valve2":{"title":{"en":"Valve 2","nl":"Ventiel 2"}},"onoff.valve3":{"title":{"en":"Valve 3","nl":"Ventiel 3"}},"onoff.valve4":{"title":{"en":"Valve 4","nl":"Ventiel 4"}},"onoff.valve5":{"title":{"en":"Valve 5","nl":"Ventiel 5"}},"onoff.valve6":{"title":{"en":"Valve 6","nl":"Ventiel 6"}}},"settings":[{"id":"duration","type":"number","label":{"en":"Watering duration","nl":"Bewateringsduur"},"hint":{"en":"The amount of time the water will flow when controlled through Homey. After this time the vents will automatically close.","nl":"Bepaal hoelang de ventielen open staan wanneer aangestuurd via Homey. Als deze tijd verstreken is zullen de ventielen automatisch sluiten."},"units":{"en":"minutes","nl":"minuten"},"min":1,"max":59,"value":20}],"id":"irrigation-control"},{"images":{"large":"/drivers/mower/assets/images/large.jpg","small":"/drivers/mower/assets/images/small.jpg"},"platforms":["cloud","local"],"pair":[{"id":"login_oauth2","template":"login_oauth2"},{"id":"list_devices","template":"list_devices","navigation":{"next":"add_devices"}},{"id":"add_devices","template":"add_devices"}],"repair":[{"id":"login_oauth2","template":"login_oauth2"}],"name":{"en":"Sileno"},"connectivity":["cloud"],"class":"other","capabilities":["measure_battery","gardena_button.park","gardena_button.start","gardena_wireless_quality","gardena_mower_state","gardena_operating_hours"],"energy":{"batteries":["INTERNAL"]},"capabilitiesOptions":{"gardena_button.start":{"title":{"en":"Start","nl":"Start"}},"gardena_button.park":{"title":{"en":"Park","nl":"Parkeer"}}},"settings":[{"id":"duration","type":"number","label":{"en":"Mowing duration","nl":"Maaiduur"},"hint":{"en":"The time the mower will operate when started with Homey. After this time it will automatically park at the charging station.","nl":"Bepaal hoelang de maaier moet maaien wanneer gestart door Homey. Als deze tijd verstreken is parkeert de maaier automatisch op het oplaadstation."},"units":{"en":"minutes","nl":"minuten"},"min":1,"max":1440,"value":180},{"id":"park_command_type","type":"checkbox","label":{"en":"Resume schedule after park command","nl":"Hervat schema na \"Parkeer\" commando"},"value":true,"hint":{"en":"By default, your mower will resume its schedule after a park command has been given by Homey, if the schedule was disabled it will be automatically activated.","nl":"Standaard zal de Sileno zijn schema hervatten na het ontvangen van een \"Parkeer\" commando van Homey, als het schema is uitgeschakeld zal het automatisch worden geactiveerd."}}],"id":"mower"},{"images":{"large":"/drivers/power/assets/images/large.jpg","small":"/drivers/power/assets/images/small.jpg"},"platforms":["cloud","local"],"pair":[{"id":"login_oauth2","template":"login_oauth2"},{"id":"list_devices","template":"list_devices","navigation":{"next":"add_devices"}},{"id":"add_devices","template":"add_devices"}],"repair":[{"id":"login_oauth2","template":"login_oauth2"}],"name":{"en":"Power"},"connectivity":["cloud"],"class":"socket","capabilities":["onoff","gardena_wireless_quality"],"id":"power"},{"images":{"large":"/drivers/sensor/assets/images/large.jpg","small":"/drivers/sensor/assets/images/small.jpg"},"platforms":["cloud","local"],"pair":[{"id":"login_oauth2","template":"login_oauth2"},{"id":"list_devices","template":"list_devices","navigation":{"next":"add_devices"}},{"id":"add_devices","template":"add_devices"}],"repair":[{"id":"login_oauth2","template":"login_oauth2"}],"name":{"en":"Sensor"},"connectivity":["cloud"],"class":"sensor","capabilities":["measure_battery","measure_temperature","measure_temperature.soil","measure_humidity.soil","measure_luminance","gardena_wireless_quality"],"energy":{"batteries":["AA","AA"]},"capabilitiesOptions":{"measure_temperature.soil":{"title":{"en":"Temperature (Soil)","nl":"Grondtemperatuur"}},"measure_humidity.soil":{"title":{"en":"Humidity (Soil)","nl":"Grondvochtigheid"}}},"id":"sensor"},{"images":{"large":"/drivers/sensor-19040/assets/images/large.jpg","small":"/drivers/sensor-19040/assets/images/small.jpg"},"platforms":["cloud","local"],"pair":[{"id":"login_oauth2","template":"login_oauth2"},{"id":"list_devices","template":"list_devices","navigation":{"next":"add_devices"}},{"id":"add_devices","template":"add_devices"}],"repair":[{"id":"login_oauth2","template":"login_oauth2"}],"name":{"en":"Sensor 19040"},"class":"sensor","connectivity":["cloud"],"capabilities":["measure_battery","measure_temperature.soil","measure_humidity.soil","gardena_wireless_quality"],"energy":{"batteries":["AA","AA"]},"capabilitiesOptions":{"measure_temperature.soil":{"title":{"en":"Temperature (Soil)","nl":"Grondtemperatuur"}},"measure_humidity.soil":{"title":{"en":"Humidity (Soil)","nl":"Grondvochtigheid"}}},"id":"sensor-19040"},{"images":{"large":"/drivers/water-control/assets/images/large.jpg","small":"/drivers/water-control/assets/images/small.jpg"},"platforms":["cloud","local"],"pair":[{"id":"login_oauth2","template":"login_oauth2"},{"id":"list_devices","template":"list_devices","navigation":{"next":"add_devices"}},{"id":"add_devices","template":"add_devices"}],"repair":[{"id":"login_oauth2","template":"login_oauth2"}],"name":{"en":"Water Control"},"class":"other","connectivity":["cloud"],"capabilities":["onoff","measure_battery","gardena_wireless_quality"],"energy":{"batteries":["AA","AA","AA"]},"settings":[{"id":"duration","type":"number","label":{"en":"Watering duration","nl":"Bewateringsduur"},"hint":{"en":"The amount of time the water will flow when controlled through Homey. After this time water flow will automatically stop","nl":"Bepaal hoelang het water zal stromen wanneer aangestuurd via Homey. Als deze tijd verstreken is zal het automatisch stoppen."},"units":{"en":"minutes","nl":"minuten"},"min":1,"max":59,"value":1}],"id":"water-control"}],"capabilities":{"gardena_alarm_frost":{"type":"boolean","title":{"en":"Frost alarm","nl":"Vorstalarm"},"getable":true,"setable":false,"icon":"/assets/capabilities/gardena_alarm_frost.svg"},"gardena_button":{"type":"boolean","title":{"en":"Dock"},"getable":false,"setable":true},"gardena_charging":{"type":"boolean","title":{"en":"Charging","nl":"Opladen"},"getable":true,"setable":false,"icon":"/assets/capabilities/gardena_charging.svg"},"gardena_mower_state":{"type":"string","title":{"en":"Mower State","nl":"Maaier Status"},"getable":true,"setable":false,"icon":"/assets/capabilities/gardena_mower_state.svg"},"gardena_operating_hours":{"type":"number","title":{"en":"Operating Hours","nl":"Bedrijfstijd"},"units":{"en":"hours","nl":"uur"},"min":0,"getable":true,"setable":false,"icon":"/assets/capabilities/gardena_clock.svg"},"gardena_wireless_quality":{"type":"number","title":{"en":"Wireless Quality","nl":"Sterkte Draadloos Signaal"},"units":"%","min":0,"max":100,"getable":true,"setable":false,"icon":"/assets/capabilities/gardena_wireless_quality.svg"}}}
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.gardena",
+  "version": "2.3.7",
+  "compatibility": ">=5.0.0",
+  "brandColor": "#EC520D",
+  "sdk": 3,
+  "name": {
+    "en": "Gardena"
+  },
+  "description": {
+    "en": "Never leave your garden behind"
+  },
+  "category": [
+    "appliances"
+  ],
+  "platforms": [
+    "cloud",
+    "local"
+  ],
+  "support": "https://homey.app/support",
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+  "author": {
+    "name": "Athom B.V."
+  },
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "The soil humidity changed",
+          "nl": "De grondvochtigheid is veranderd"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "humidity",
+            "title": {
+              "en": "humidity (%)",
+              "nl": "vochtigheid (%)"
+            },
+            "example": {
+              "en": "50"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sensor-19040|sensor"
+          }
+        ],
+        "id": "soil_humidity_changed"
+      },
+      {
+        "title": {
+          "en": "The soil temperature changed",
+          "nl": "De grondtemperatuur is veranderd"
+        },
+        "tokens": [
+          {
+            "type": "number",
+            "name": "soil_temperature",
+            "title": {
+              "en": "soil temperature",
+              "nl": "grondtemperatuur"
+            },
+            "example": {
+              "en": "20"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sensor-19040|sensor"
+          }
+        ],
+        "id": "soil_temperature_changed"
+      },
+      {
+        "id": "gardena_mower_state_has_changed",
+        "title": {
+          "en": "Mower state changed",
+          "nl": "Maaier status is veranderd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mower"
+          }
+        ]
+      },
+      {
+        "id": "gardena_mower_state_error",
+        "title": {
+          "en": "Mower encountered an error",
+          "nl": "Maaier kreeg een foutmelding"
+        },
+        "tokens": [
+          {
+            "name": "error_message",
+            "type": "string",
+            "title": {
+              "en": "Error message",
+              "nl": "Foutmelding"
+            },
+            "example": "CHARGING_STATION_BLOCKED"
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mower"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "irrigation_control_turn_on_valve1",
+        "title": {
+          "en": "Turn on valve 1",
+          "nl": "Open ventiel 1"
+        },
+        "duration": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve1"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_off_valve1",
+        "title": {
+          "en": "Turn off valve 1",
+          "nl": "Sluit ventiel 1"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve1"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_on_valve2",
+        "title": {
+          "en": "Turn on valve 2",
+          "nl": "Open ventiel 2"
+        },
+        "duration": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve2"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_off_valve2",
+        "title": {
+          "en": "Turn off valve 2",
+          "nl": "Sluit ventiel 2"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve2"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_on_valve3",
+        "title": {
+          "en": "Turn on valve 3",
+          "nl": "Open ventiel 3"
+        },
+        "duration": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve3"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_off_valve3",
+        "title": {
+          "en": "Turn off valve 3",
+          "nl": "Sluit ventiel 3"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve3"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_on_valve4",
+        "title": {
+          "en": "Turn on valve 4",
+          "nl": "Open ventiel 4"
+        },
+        "duration": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve4"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_off_valve4",
+        "title": {
+          "en": "Turn off valve 4",
+          "nl": "Sluit ventiel 4"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve4"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_on_valve5",
+        "title": {
+          "en": "Turn on valve 5",
+          "nl": "Open ventiel 5"
+        },
+        "duration": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve5"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_off_valve5",
+        "title": {
+          "en": "Turn off valve 5",
+          "nl": "Sluit ventiel 5"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve5"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_on_valve6",
+        "title": {
+          "en": "Turn on valve 6",
+          "nl": "Open ventiel 6"
+        },
+        "duration": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve6"
+          }
+        ]
+      },
+      {
+        "id": "irrigation_control_turn_off_valve6",
+        "title": {
+          "en": "Turn off valve 6",
+          "nl": "Sluit ventiel 6"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=irrigation-control&capabilities=onoff.valve6"
+          }
+        ]
+      },
+      {
+        "id": "mower_start",
+        "title": {
+          "en": "Start mowing",
+          "nl": "Begin met maaien"
+        },
+        "duration": true,
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mower"
+          }
+        ]
+      },
+      {
+        "id": "mower_park",
+        "title": {
+          "en": "Park",
+          "nl": "Parkeer"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mower"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "gardena_mower_state_is",
+        "title": {
+          "en": "Mower !{{is|isn't}}",
+          "nl": "Maaier !{{is|is niet}}"
+        },
+        "titleFormatted": {
+          "en": "Mower !{{is|isn't}} [[status]]",
+          "nl": "Maaier !{{is|is niet}} [[status]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=mower"
+          },
+          {
+            "type": "dropdown",
+            "name": "status",
+            "title": {
+              "en": "Current mower state",
+              "nl": "Huidige maaier status"
+            },
+            "values": [
+              {
+                "id": "mowing",
+                "label": {
+                  "en": "mowing",
+                  "nl": "aan het maaien"
+                }
+              },
+              {
+                "id": "parked",
+                "label": {
+                  "en": "parked",
+                  "nl": "geparkeerd"
+                }
+              },
+              {
+                "id": "paused",
+                "label": {
+                  "en": "paused",
+                  "nl": "gepauzeerd"
+                }
+              },
+              {
+                "id": "searching_station",
+                "label": {
+                  "en": "searching charging station",
+                  "nl": "oplaadstation aan het zoeken"
+                }
+              },
+              {
+                "id": "leaving_station",
+                "label": {
+                  "en": "leaving charging station",
+                  "nl": "oplaadstation aan het verlaten"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "images": {
+        "large": "/drivers/irrigation-control/assets/images/large.jpg",
+        "small": "/drivers/irrigation-control/assets/images/small.jpg"
+      },
+      "platforms": [
+        "cloud",
+        "local"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "name": {
+        "en": "Irrigation Control"
+      },
+      "connectivity": [
+        "cloud"
+      ],
+      "class": "other",
+      "capabilities": [
+        "onoff.valve1",
+        "onoff.valve2",
+        "onoff.valve3",
+        "onoff.valve4",
+        "onoff.valve5",
+        "onoff.valve6",
+        "gardena_wireless_quality"
+      ],
+      "capabilitiesOptions": {
+        "onoff.valve1": {
+          "title": {
+            "en": "Valve 1",
+            "nl": "Ventiel 1"
+          }
+        },
+        "onoff.valve2": {
+          "title": {
+            "en": "Valve 2",
+            "nl": "Ventiel 2"
+          }
+        },
+        "onoff.valve3": {
+          "title": {
+            "en": "Valve 3",
+            "nl": "Ventiel 3"
+          }
+        },
+        "onoff.valve4": {
+          "title": {
+            "en": "Valve 4",
+            "nl": "Ventiel 4"
+          }
+        },
+        "onoff.valve5": {
+          "title": {
+            "en": "Valve 5",
+            "nl": "Ventiel 5"
+          }
+        },
+        "onoff.valve6": {
+          "title": {
+            "en": "Valve 6",
+            "nl": "Ventiel 6"
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "duration",
+          "type": "number",
+          "label": {
+            "en": "Watering duration",
+            "nl": "Bewateringsduur"
+          },
+          "hint": {
+            "en": "The amount of time the water will flow when controlled through Homey. After this time the vents will automatically close.",
+            "nl": "Bepaal hoelang de ventielen open staan wanneer aangestuurd via Homey. Als deze tijd verstreken is zullen de ventielen automatisch sluiten."
+          },
+          "units": {
+            "en": "minutes",
+            "nl": "minuten"
+          },
+          "min": 1,
+          "max": 59,
+          "value": 20
+        }
+      ],
+      "id": "irrigation-control"
+    },
+    {
+      "images": {
+        "large": "/drivers/mower/assets/images/large.jpg",
+        "small": "/drivers/mower/assets/images/small.jpg"
+      },
+      "platforms": [
+        "cloud",
+        "local"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "name": {
+        "en": "Sileno"
+      },
+      "connectivity": [
+        "cloud"
+      ],
+      "class": "other",
+      "capabilities": [
+        "measure_battery",
+        "gardena_button.park",
+        "gardena_button.start",
+        "gardena_wireless_quality",
+        "gardena_mower_state",
+        "gardena_operating_hours"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "capabilitiesOptions": {
+        "gardena_button.start": {
+          "title": {
+            "en": "Start",
+            "nl": "Start"
+          }
+        },
+        "gardena_button.park": {
+          "title": {
+            "en": "Park",
+            "nl": "Parkeer"
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "duration",
+          "type": "number",
+          "label": {
+            "en": "Mowing duration",
+            "nl": "Maaiduur"
+          },
+          "hint": {
+            "en": "The time the mower will operate when started with Homey. After this time it will automatically park at the charging station.",
+            "nl": "Bepaal hoelang de maaier moet maaien wanneer gestart door Homey. Als deze tijd verstreken is parkeert de maaier automatisch op het oplaadstation."
+          },
+          "units": {
+            "en": "minutes",
+            "nl": "minuten"
+          },
+          "min": 1,
+          "max": 1440,
+          "value": 180
+        },
+        {
+          "id": "park_command_type",
+          "type": "checkbox",
+          "label": {
+            "en": "Resume schedule after park command",
+            "nl": "Hervat schema na \"Parkeer\" commando"
+          },
+          "value": true,
+          "hint": {
+            "en": "By default, your mower will resume its schedule after a park command has been given by Homey, if the schedule was disabled it will be automatically activated.",
+            "nl": "Standaard zal de Sileno zijn schema hervatten na het ontvangen van een \"Parkeer\" commando van Homey, als het schema is uitgeschakeld zal het automatisch worden geactiveerd."
+          }
+        }
+      ],
+      "id": "mower"
+    },
+    {
+      "images": {
+        "large": "/drivers/power/assets/images/large.jpg",
+        "small": "/drivers/power/assets/images/small.jpg"
+      },
+      "platforms": [
+        "cloud",
+        "local"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "name": {
+        "en": "Power"
+      },
+      "connectivity": [
+        "cloud"
+      ],
+      "class": "socket",
+      "capabilities": [
+        "onoff",
+        "gardena_wireless_quality"
+      ],
+      "id": "power"
+    },
+    {
+      "images": {
+        "large": "/drivers/sensor/assets/images/large.jpg",
+        "small": "/drivers/sensor/assets/images/small.jpg"
+      },
+      "platforms": [
+        "cloud",
+        "local"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "name": {
+        "en": "Sensor"
+      },
+      "connectivity": [
+        "cloud"
+      ],
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "measure_temperature",
+        "measure_temperature.soil",
+        "measure_humidity.soil",
+        "measure_luminance",
+        "gardena_wireless_quality"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "capabilitiesOptions": {
+        "measure_temperature.soil": {
+          "title": {
+            "en": "Temperature (Soil)",
+            "nl": "Grondtemperatuur"
+          }
+        },
+        "measure_humidity.soil": {
+          "title": {
+            "en": "Humidity (Soil)",
+            "nl": "Grondvochtigheid"
+          }
+        }
+      },
+      "id": "sensor"
+    },
+    {
+      "images": {
+        "large": "/drivers/sensor-19040/assets/images/large.jpg",
+        "small": "/drivers/sensor-19040/assets/images/small.jpg"
+      },
+      "platforms": [
+        "cloud",
+        "local"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "name": {
+        "en": "Sensor 19040"
+      },
+      "class": "sensor",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "measure_temperature.soil",
+        "measure_humidity.soil",
+        "gardena_wireless_quality"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "capabilitiesOptions": {
+        "measure_temperature.soil": {
+          "title": {
+            "en": "Temperature (Soil)",
+            "nl": "Grondtemperatuur"
+          }
+        },
+        "measure_humidity.soil": {
+          "title": {
+            "en": "Humidity (Soil)",
+            "nl": "Grondvochtigheid"
+          }
+        }
+      },
+      "id": "sensor-19040"
+    },
+    {
+      "images": {
+        "large": "/drivers/water-control/assets/images/large.jpg",
+        "small": "/drivers/water-control/assets/images/small.jpg"
+      },
+      "platforms": [
+        "cloud",
+        "local"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "name": {
+        "en": "Water Control"
+      },
+      "class": "other",
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_battery",
+        "gardena_wireless_quality"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "settings": [
+        {
+          "id": "duration",
+          "type": "number",
+          "label": {
+            "en": "Watering duration",
+            "nl": "Bewateringsduur"
+          },
+          "hint": {
+            "en": "The amount of time the water will flow when controlled through Homey. After this time water flow will automatically stop",
+            "nl": "Bepaal hoelang het water zal stromen wanneer aangestuurd via Homey. Als deze tijd verstreken is zal het automatisch stoppen."
+          },
+          "units": {
+            "en": "minutes",
+            "nl": "minuten"
+          },
+          "min": 1,
+          "max": 59,
+          "value": 1
+        }
+      ],
+      "id": "water-control"
+    }
+  ],
+  "capabilities": {
+    "gardena_alarm_frost": {
+      "type": "boolean",
+      "title": {
+        "en": "Frost alarm",
+        "nl": "Vorstalarm"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/gardena_alarm_frost.svg"
+    },
+    "gardena_button": {
+      "type": "boolean",
+      "title": {
+        "en": "Dock"
+      },
+      "getable": false,
+      "setable": true
+    },
+    "gardena_charging": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging",
+        "nl": "Opladen"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/gardena_charging.svg"
+    },
+    "gardena_mower_state": {
+      "type": "string",
+      "title": {
+        "en": "Mower State",
+        "nl": "Maaier Status"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/gardena_mower_state.svg"
+    },
+    "gardena_operating_hours": {
+      "type": "number",
+      "title": {
+        "en": "Operating Hours",
+        "nl": "Bedrijfstijd"
+      },
+      "units": {
+        "en": "hours",
+        "nl": "uur"
+      },
+      "min": 0,
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/gardena_clock.svg"
+    },
+    "gardena_wireless_quality": {
+      "type": "number",
+      "title": {
+        "en": "Wireless Quality",
+        "nl": "Sterkte Draadloos Signaal"
+      },
+      "units": "%",
+      "min": 0,
+      "max": 100,
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/capabilities/gardena_wireless_quality.svg"
+    }
+  }
+}
